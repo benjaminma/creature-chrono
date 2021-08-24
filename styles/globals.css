@@ -1,9 +1,17 @@
+html {
+	--pokeblue-color: rgb(33,100,173);
+	--pokeyellow-color: rgb(245, 230, 82);
+	--pokepurple-color: rgb(90,74, 160);
+	--pokedarkpurple-color: rgb(49,49, 82);
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: 'Press Start 2P', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	background: var(--pokedarkpurple-color);
 }
 
 a {
@@ -14,3 +22,4 @@ a {
 * {
   box-sizing: border-box;
 }
+

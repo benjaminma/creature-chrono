@@ -1,3 +1,4 @@
+
 .container {
   min-height: 100vh;
   padding: 0 0.5rem;
@@ -6,15 +7,57 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+	background: tomato;
+}
+
+.nav {
+	color: var(--pokeyellow-color);
+	background: var(--pokeblue-color);
+	display: block;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+}
+
+.navbar {
+	display: flex;
+	/* background: pink; */
+	max-width: 900px;
+	align-items: baseline;
+	align-items: center;
+	flex: 1;
+}
+
+.navbar a.navlogo {
+	border: 1px dotted pink;
+	padding: 0.5rem 0.75rem;
+	flex: 1;
+	font-size: 1.25rem;
+}
+
+.navbar a {
+	border: 1px dotted green;
+	padding: 0.5rem 0.75rem;
+	font-size: 1rem;
+}
+
+.navbar a:hover {
+	text-decoration: underline;
+}
+
+.navbar a:focus {
+	text-decoration: underline;
 }
 
 .main {
+	border: 2px dotted yellow;
   padding: 5rem 0;
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+	background: orange;
 }
 
 .footer {
@@ -24,6 +67,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+	background: lime;
 }
 
 .footer a {
@@ -45,6 +89,7 @@
 }
 
 .title {
+	background: blue;
   margin: 0;
   line-height: 1.15;
   font-size: 4rem;
@@ -65,11 +110,12 @@
   border-radius: 5px;
   padding: 0.75rem;
   font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+  font-family: 'Press Start 2P', Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
     Bitstream Vera Sans Mono, Courier New, monospace;
 }
 
 .grid {
+	background: grey;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -79,6 +125,7 @@
 }
 
 .card {
+	background: pink;
   margin: 1rem;
   padding: 1.5rem;
   text-align: left;
