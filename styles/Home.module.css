@@ -7,7 +7,6 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-	background: tomato;
 }
 
 .nav {
@@ -17,47 +16,66 @@
 	width: 100vw;
 	display: flex;
 	justify-content: center;
+	border-bottom: 2px solid cyan;
 }
 
 .navbar {
 	display: flex;
-	/* background: pink; */
+	flex-direction: row;
 	max-width: 900px;
-	align-items: baseline;
-	align-items: center;
 	flex: 1;
+	text-shadow: 4px 4px var(--pokedarkpurple-color);
 }
 
-.navbar a.navlogo {
-	border: 1px dotted pink;
-	padding: 0.5rem 0.75rem;
-	flex: 1;
+.navlogo {
 	font-size: 1.25rem;
+	flex: 1;
 }
 
 .navbar a {
-	border: 1px dotted green;
 	padding: 0.5rem 0.75rem;
 	font-size: 1rem;
+	border: 2px solid transparent;
 }
 
 .navbar a:hover {
-	text-decoration: underline;
+	border: 2px dashed yellow;
 }
 
 .navbar a:focus {
-	text-decoration: underline;
+	border: 2px dashed yellow;
 }
 
 .main {
-	border: 2px dotted yellow;
-  padding: 5rem 0;
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-	background: orange;
+}
+
+.racetimer {
+	background: var(--racetimer-color);
+	border-bottom: 2px solid #222;
+	font-size: 6rem;
+	padding: 2rem 0 1rem;
+	width: 100vw;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.racetimer_unlit {
+	color: var(--darkorange-color);
+}
+
+.racetimer_lit {
+	color: var(--neonorange-color);
+	text-shadow:
+	0 0 3px white,
+	0 0 12px var(--neonorange-color),
+	0 0 48px var(--neonorange-color)
 }
 
 .footer {
@@ -89,10 +107,11 @@
 }
 
 .title {
-	background: blue;
-  margin: 0;
+	color: var(--pokeyellow-color);
+	text-shadow: 4px 4px black;
+  margin: 2rem;
   line-height: 1.15;
-  font-size: 4rem;
+  font-size: 3rem;
 }
 
 .title,
@@ -160,9 +179,30 @@
   margin-left: 0.5rem;
 }
 
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
-  }
+@media (max-width: 1000px) {
+	.racetimer {
+		font-size: 5rem;
+	}
+}
+
+@media (max-width: 900px) {
+	.racetimer {
+		font-size: 4rem;
+	}
+
+	.title {
+		font-size: 2rem;
+		margin: 1.25rem;
+	}
+}
+
+@media (max-width: 800px) {
+	.racetimer {
+		font-size: 3rem;
+	}
+
+	.title {
+		font-size: 1.5rem;
+		margin: 1rem;
+	}
 }
