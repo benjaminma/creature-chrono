@@ -10,7 +10,7 @@
 }
 
 .nav {
-  color: var(--pokeyellow-color);
+  color: magenta;
   background: var(--pokeblue-color);
   display: block;
   width: 100vw;
@@ -30,20 +30,23 @@
 
 .navlogo {
   font-size: 1.25rem;
+}
+
+.navbar span {
   flex: 1;
 }
 
 .navbar a {
   padding: 0.5rem 0.75rem;
-  border: 2px solid transparent;
+  border: 0.25rem solid transparent;
 }
 
 .navbar a:hover {
-  border: 2px dashed yellow;
+  border: 0.25rem dashed yellow;
 }
 
 .navbar a:focus {
-  border: 2px dashed yellow;
+  border: 0.25rem dashed yellow;
 }
 
 .main {
@@ -57,7 +60,7 @@
 .racetimer {
   background: var(--racetimer-color);
   font-size: 6rem;
-  padding: 2rem;
+  padding: 3rem;
   width: 100vw;
   display: flex;
   flex-direction: row;
@@ -80,30 +83,33 @@
 
 .footer {
   width: 100vw;
-  height: 8rem;
+  height: 10rem;
   display: flex;
   justify-content: center;
   align-items: stretch;
-  padding: 1rem;
+  padding: .5rem;
 }
 
 .btnstart {
+  cursor: pointer;
   font-size: 3rem;
   flex: 1;
-  text-shadow: 0.25rem 0.25rem yellow;
+  text-shadow: 0.25rem 0.25rem white;
   font-family: var(--game-font);
-  background: lime;
+  background: cyan;
   transform: translateX(-0.25rem) translateY(-0.25rem);
+	max-width: 800px;
 }
 
 .btnstart:active {
   transform: none;
-	background: limegreen;
-  border: 0.5rem dashed yellow;
+  background: rgb(13, 149, 173);
+  text-shadow: 0.25rem 0.25rem grey;
+  border: 0.5rem dashed black;
 }
 
 .btnstart:focus,.btnstart:hover {
-  border: 0.5rem dashed yellow;
+  border: 0.5rem dashed black;
 }
 
 .btnshadow {
@@ -112,6 +118,7 @@
   justify-content: center;
   align-items: stretch;
   background: var(--black10-color);
+	max-width: 800px;
 }
 
 .footer a {
