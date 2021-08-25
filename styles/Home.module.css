@@ -10,40 +10,40 @@
 }
 
 .nav {
-	color: var(--pokeyellow-color);
-	background: var(--pokeblue-color);
-	display: block;
-	width: 100vw;
-	display: flex;
-	justify-content: center;
-	border-bottom: 2px solid cyan;
+  color: var(--pokeyellow-color);
+  background: var(--pokeblue-color);
+  display: block;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  border-bottom: 2px solid magenta;
 }
 
 .navbar {
-	display: flex;
-	flex-direction: row;
-	max-width: 900px;
-	flex: 1;
-	text-shadow: 4px 4px var(--pokedarkpurple-color);
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  flex: 1;
+  max-width: 900px;
+  text-shadow: 4px 4px var(--pokedarkpurple-color);
 }
 
 .navlogo {
-	font-size: 1.25rem;
-	flex: 1;
+  font-size: 1.25rem;
+  flex: 1;
 }
 
 .navbar a {
-	padding: 0.5rem 0.75rem;
-	font-size: 1rem;
-	border: 2px solid transparent;
+  padding: 0.5rem 0.75rem;
+  border: 2px solid transparent;
 }
 
 .navbar a:hover {
-	border: 2px dashed yellow;
+  border: 2px dashed yellow;
 }
 
 .navbar a:focus {
-	border: 2px dashed yellow;
+  border: 2px dashed yellow;
 }
 
 .main {
@@ -55,37 +55,63 @@
 }
 
 .racetimer {
-	background: var(--racetimer-color);
-	border-bottom: 2px solid #222;
-	font-size: 6rem;
-	padding: 2rem 0 1rem;
-	width: 100vw;
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
+  background: var(--racetimer-color);
+  /* border-bottom: 2px solid #222; */
+  font-size: 6rem;
+  padding: 2rem;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0 0 1rem #222;
 }
 
 .racetimer_unlit {
-	color: var(--darkorange-color);
+  color: var(--darkorange-color);
 }
 
 .racetimer_lit {
-	color: var(--neonorange-color);
-	text-shadow:
-	0 0 3px white,
-	0 0 12px var(--neonorange-color),
-	0 0 48px var(--neonorange-color)
+  color: var(--neonorange-color);
+  text-shadow:
+  0 0 3px white,
+  0 0 12px var(--neonorange-color),
+  0 0 48px var(--neonorange-color)
 }
 
 .footer {
-  width: 100%;
-  height: 100px;
-  border-top: 1px solid #eaeaea;
+  width: 100vw;
+  height: 8rem;
   display: flex;
   justify-content: center;
-  align-items: center;
-	background: lime;
+  align-items: stretch;
+  padding: 1rem;
+}
+
+.btnstart {
+  font-size: 3rem;
+  flex: 1;
+  text-shadow: 0.25rem 0.25rem yellow;
+  font-family: var(--game-font);
+  background: lime;
+  transform: translateX(-0.25rem) translateY(-0.25rem);
+}
+
+.btnstart:active {
+  transform: none;
+  border: 0.5rem dashed yellow;
+}
+
+.btnstart:focus,.btnstart:hover {
+  border: 0.5rem dashed yellow;
+}
+
+.btnshadow {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: stretch;
+  background: #222;
 }
 
 .footer a {
@@ -107,9 +133,9 @@
 }
 
 .title {
-	color: var(--pokeyellow-color);
-	text-shadow: 4px 4px black;
-  margin: 2rem;
+  color: var(--pokeyellow-color);
+  text-shadow: 0.25rem 0.25rem black;
+  margin: 3rem;
   line-height: 1.15;
   font-size: 3rem;
 }
@@ -129,12 +155,11 @@
   border-radius: 5px;
   padding: 0.75rem;
   font-size: 1.1rem;
-  font-family: 'Press Start 2P', Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
+  font-family: var(--game-font);
 }
 
 .grid {
-	background: grey;
+  background: grey;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -144,7 +169,7 @@
 }
 
 .card {
-	background: pink;
+  background: pink;
   margin: 1rem;
   padding: 1.5rem;
   text-align: left;
@@ -180,29 +205,33 @@
 }
 
 @media (max-width: 1000px) {
-	.racetimer {
-		font-size: 5rem;
-	}
+  .racetimer {
+    font-size: 5rem;
+  }
 }
 
 @media (max-width: 900px) {
-	.racetimer {
-		font-size: 4rem;
-	}
+  .racetimer {
+    font-size: 4rem;
+  }
 
-	.title {
-		font-size: 2rem;
-		margin: 1.25rem;
-	}
+  .title {
+    font-size: 2rem;
+    margin: 2rem;
+  }
+
+  .btnstart {
+    font-size: 2rem;
+  }
 }
 
 @media (max-width: 800px) {
-	.racetimer {
-		font-size: 3rem;
-	}
+  .racetimer {
+    font-size: 3rem;
+  }
 
-	.title {
-		font-size: 1.5rem;
-		margin: 1rem;
-	}
+  .title {
+    font-size: 1.5rem;
+    margin: 1.5rem;
+  }
 }

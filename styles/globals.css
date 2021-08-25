@@ -1,23 +1,24 @@
 html {
-	--pokeblue-color: rgb(68, 25, 168);
-	--pokeyellow-color: rgb(248, 226, 26);
-	--pokepurple-color: rgb(60, 45, 124);
-	--pokedarkpurple-color: rgb(36, 36, 66);
-	--neonorange-color: rgb(255, 94, 0);
-	--neonorangeglow-color: rgb(255, 187, 0);
-	--darkorange-color: rgb(100, 43, 5);
-	--racetimer-color: rgb(32, 28, 32);
+  --game-font: 'Press Start 2P', Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+  Bitstream Vera Sans Mono, Courier New, monospace;
+  --pokeblue-color: rgb(68, 25, 168);
+  --pokeyellow-color: rgb(248, 226, 26);
+  --pokepurple-color: rgb(60, 45, 124);
+  --pokedarkpurple-color: rgb(18, 18, 34);
+  --neonorange-color: rgb(255, 94, 0);
+  --neonorangeglow-color: rgb(255, 187, 0);
+  --darkorange-color: rgb(100, 43, 5);
+  --racetimer-color: rgb(32, 28, 32);
 }
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Press Start 2P', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-	background: var(--pokedarkpurple-color);
-	background: rgb(2,0,36);
-background: linear-gradient(143deg, var(--pokedarkpurple-color) 0%, var(--pokepurple-color) 100%);
+  font-family: var(--game-font);
+  background: var(--pokedarkpurple-color);
+  background: rgb(2,0,36);
+background: linear-gradient(180deg, var(--pokedarkpurple-color) 0%, var(--pokepurple-color) 100%);
 }
 
 a {
