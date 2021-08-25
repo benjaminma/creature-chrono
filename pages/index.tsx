@@ -20,7 +20,7 @@ function getRaceMessage(timerState: number, raceTime: number): string {
   }
   return "1";
 }
-
+const countdownMessage = "3... 2... 1...";
 const Home: NextPage = () => {
   const [timerState, setTimerState] = React.useState(0);
   const [startTime, setStartTime] = React.useState(new Date().getTime());
@@ -50,12 +50,13 @@ const Home: NextPage = () => {
         let diffTime = raceTime - currTime;
 
         if (raceTime > currTime) {
-          if (diffTime <= 1000) {
-            setRaceMessage("3... 2... 1...");
-          } else if (diffTime <= 2000) {
-            setRaceMessage("3... 2...");
-          } else if (diffTime <= 3000) {
-            setRaceMessage("3...");
+          if (diffTime <= 3000) {
+            setRaceMessage(
+              countdownMessage.substr(
+                0,
+                ((3300 - diffTime) / 3000) * countdownMessage.length
+              )
+            );
           }
           setDisplayUnlit("0:00.000");
           setDisplayLit("");
@@ -83,7 +84,7 @@ const Home: NextPage = () => {
           lit = `${ss}.${sss}`;
         }
         setDisplayLit(lit);
-      }, 16);
+      }, 33);
     }
 
     return () => {
