@@ -8,7 +8,8 @@ html {
   --neonorange-color: rgb(255, 94, 0);
   --neonorangeglow-color: rgb(255, 187, 0);
   --darkorange-color: rgb(100, 43, 5);
-  --racetimer-color: rgb(32, 28, 32);
+  --racetimer-color: rgb(20, 20, 20);
+	--black10-color: rgb(10,10,10);
 }
 
 html,
