@@ -26,8 +26,10 @@ const Home: NextPage = () => {
   const [startTime, setStartTime] = React.useState(new Date().getTime());
   const [raceTime, setRaceTime] = React.useState(new Date().getTime());
   const [raceMessage, setRaceMessage] = React.useState("Ready to race?");
-  const [displayUnlit, setDisplayUnlit] = React.useState("0:00.000");
+  const [displayUnlit, setDisplayUnlit] = React.useState("0:00");
+  const [displayUnlitMs, setDisplayUnlitMs] = React.useState(".00");
   const [displayLit, setDisplayLit] = React.useState("");
+  const [displayLitMs, setDisplayLitMs] = React.useState("");
   const handleStart = React.useCallback(
     (event) => {
       if (timerState === 0) {
@@ -58,8 +60,10 @@ const Home: NextPage = () => {
               )
             );
           }
-          setDisplayUnlit("0:00.000");
+          setDisplayUnlit("0:00");
+          setDisplayUnlitMs(".00");
           setDisplayLit("");
+          setDisplayLitMs("");
           return;
         }
 
@@ -69,7 +73,11 @@ const Home: NextPage = () => {
         const diffDate = new Date(diffTime);
         const m = diffDate.getMinutes().valueOf();
         const ss = diffDate.getSeconds().valueOf();
-        const sss = diffDate.getMilliseconds().toString().padStart(3, "0");
+        const sss = diffDate
+          .getMilliseconds()
+          .toString()
+          .padStart(3, "0")
+          .substr(0, 2);
         let unlit = "";
         if (m === 0 && ss < 10) {
           unlit = "0:0";
@@ -77,13 +85,17 @@ const Home: NextPage = () => {
           unlit = "0:";
         }
         setDisplayUnlit(unlit);
+        setDisplayUnlitMs("");
         let lit;
         if (m > 0) {
-          lit = `${m}:${ss.toString().padStart(2, "0")}.${sss}`;
+          // lit = `${m}:${ss.toString().padStart(2, "0")}.${sss}`;
+          lit = `${m}:${ss.toString().padStart(2, "0")}`;
         } else {
-          lit = `${ss}.${sss}`;
+          // lit = `${ss}.${sss}`;
+          lit = `${ss}`;
         }
         setDisplayLit(lit);
+        setDisplayLitMs(`.${sss}`);
       }, 33);
     }
 
@@ -118,6 +130,8 @@ const Home: NextPage = () => {
         <div className={styles.racetimer}>
           <span className={styles.racetimer_unlit}>{displayUnlit}</span>
           <span className={styles.racetimer_lit}>{displayLit}</span>
+          <span className={styles.racetimer_unlit_sss}>{displayUnlitMs}</span>
+          <span className={styles.racetimer_lit_sss}>{displayLitMs}</span>
         </div>
 
         <h1 className={styles.title}>{raceMessage}</h1>

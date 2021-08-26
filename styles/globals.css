@@ -7,7 +7,7 @@ html {
   --pokedarkpurple-color: rgb(18, 18, 34);
   --neonorange-color: rgb(255, 94, 0);
   --neonorangeglow-color: rgb(255, 187, 0);
-  --darkorange-color: rgb(100, 43, 5);
+  --darkorange-color: rgb(114, 46, 0);
   --racetimer-color: rgb(20, 20, 20);
 	--black10-color: rgb(10,10,10);
 }
@@ -19,12 +19,17 @@ body {
   font-family: var(--game-font);
   background: var(--pokedarkpurple-color);
   background: rgb(2,0,36);
-background: linear-gradient(180deg, var(--pokedarkpurple-color) 0%, var(--pokepurple-color) 100%);
+  background: linear-gradient(180deg, var(--pokedarkpurple-color) 0%, var(--pokepurple-color) 100%);
 }
 
 a {
   color: inherit;
   text-decoration: none;
+}
+
+a:active {
+  color: cyan;
+	transform: translateX(0.25rem) translateY(0.25rem);
 }
 
 * {
