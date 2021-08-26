@@ -39,7 +39,7 @@ a {
 }
 
 a:active {
-  color: cyan;
+  color: yellow;
   transform: translateX(0.25rem) translateY(0.25rem);
 }
 

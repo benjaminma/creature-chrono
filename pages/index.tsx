@@ -4,27 +4,20 @@ import React from "react";
 // import Image from "next/image";
 import styles from "../styles/Home.module.css";
 
-function getRaceMessage(timerState: number, raceTime: number): string {
-  if (timerState === 0) {
-    return "Ready to race?";
-  }
+const RACE_START_DELAY = 4500;
 
-  const currTime = new Date().getTime();
-  if (currTime > raceTime) {
-    return "GO!!!";
-  }
-  const diffTime = currTime - raceTime;
-  if (diffTime <= 1000) return "3";
-  else if (diffTime <= 2000) {
-    return "2";
-  }
-  return "1";
+function getRaceLightStyle(
+  raceLight: number,
+  state: number
+): React.CSSProperties | undefined {
+  return { display: raceLight === state ? "block" : "none" };
 }
 
 const Home: NextPage = () => {
   const [timerState, setTimerState] = React.useState(0);
   const [startTime, setStartTime] = React.useState(new Date().getTime());
   const [raceTime, setRaceTime] = React.useState(new Date().getTime());
+  const [raceLight, setRaceLight] = React.useState(0);
   const [raceMessage, setRaceMessage] = React.useState("Ready to race?");
   const [displayUnlit, setDisplayUnlit] = React.useState("0:00");
   const [displayUnlitMs, setDisplayUnlitMs] = React.useState(".00");
@@ -35,9 +28,10 @@ const Home: NextPage = () => {
       if (timerState === 0) {
         setTimerState(1);
         setStartTime(new Date().getTime());
-        setRaceTime(new Date().getTime() + 3000);
+        setRaceTime(new Date().getTime() + RACE_START_DELAY);
       } else {
         setTimerState(0);
+        setRaceLight(0);
         setRaceMessage("Race again?");
       }
     },
@@ -54,10 +48,15 @@ const Home: NextPage = () => {
         if (raceTime > currTime) {
           if (diffTime <= 1000) {
             setRaceMessage("1...");
+            setRaceLight(3);
           } else if (diffTime <= 2000) {
             setRaceMessage("2...");
+            setRaceLight(2);
           } else if (diffTime <= 3000) {
             setRaceMessage("3...");
+            setRaceLight(1);
+          } else {
+            setRaceMessage("Ready...");
           }
 
           setDisplayUnlit("0:00");
@@ -68,6 +67,7 @@ const Home: NextPage = () => {
         }
 
         setRaceMessage("GO!!!");
+        setRaceLight(4);
 
         diffTime = currTime - raceTime;
         const diffDate = new Date(diffTime);
@@ -88,10 +88,8 @@ const Home: NextPage = () => {
         setDisplayUnlitMs("");
         let lit;
         if (m > 0) {
-          // lit = `${m}:${ss.toString().padStart(2, "0")}.${sss}`;
           lit = `${m}:${ss.toString().padStart(2, "0")}`;
         } else {
-          // lit = `${ss}.${sss}`;
           lit = `${ss}`;
         }
         setDisplayLit(lit);
@@ -135,17 +133,52 @@ const Home: NextPage = () => {
         </div>
 
         <div className={styles.raceScreen}>
-          <div className={styles.raceTree}>
-            <div className={styles.raceTreeRedLit}>00 00</div>
-            <div className={styles.raceTreeRed}>00 00</div>
-            <div className={styles.raceTreeYellowLit}>00 00</div>
-            <div className={styles.raceTreeYellow}>00 00</div>
-            <div className={styles.raceTreeGreenLit}>00 00</div>
-            <div className={styles.raceTreeGreen}>00 00</div>
-          </div>
-
           <div key={raceMessage} className={styles.raceMessage}>
             {raceMessage}
+          </div>
+
+          <div className={styles.raceTree}>
+            <div
+              className={
+                raceLight === 0 ? styles.raceTreeRedLit : styles.raceTreeRed
+              }
+            >
+              00 00
+            </div>
+            <div
+              className={
+                raceLight === 1
+                  ? styles.raceTreeYellowLit
+                  : styles.raceTreeYellow
+              }
+            >
+              00 00
+            </div>
+            <div
+              className={
+                raceLight === 2
+                  ? styles.raceTreeYellowLit
+                  : styles.raceTreeYellow
+              }
+            >
+              00 00
+            </div>
+            <div
+              className={
+                raceLight === 3
+                  ? styles.raceTreeYellowLit
+                  : styles.raceTreeYellow
+              }
+            >
+              00 00
+            </div>
+            <div
+              className={
+                raceLight === 4 ? styles.raceTreeGreenLit : styles.raceTreeGreen
+              }
+            >
+              00 00
+            </div>
           </div>
         </div>
       </main>

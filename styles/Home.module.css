@@ -41,11 +41,11 @@
 }
 
 .navbar a:hover {
-  border: 0.25rem dashed yellow;
+  border-bottom: 0.25rem solid yellow;
 }
 
 .navbar a:focus {
-  border: 0.25rem dashed yellow;
+  border-bottom: 0.25rem solid yellow;
 }
 
 .main {
@@ -98,7 +98,7 @@
 
 .raceTree {
   font-size: 6rem;
-  position: absolute;
+  padding-bottom: 1rem;
 }
 
 .raceTreeRed {
@@ -156,6 +156,7 @@
 
 .btnstart:active {
   transform: none;
+  color: yellow;
   background: var(--pokedarkpurple-color);
   border: 0.5rem dashed yellow;
 }
@@ -178,8 +179,9 @@
   width: 100vw;
   flex: 1;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .raceMessage {
@@ -194,16 +196,16 @@
   backface-visibility: hidden;
   background: var(--black10-color);
   width: 100vw;
-  opacity: 0.85;
+  /* opacity: 0.85; */
 }
 
 @keyframes flyin {
   0% {
-    font-size: 1em;
+    font-size: 0;
     opacity: 0;
   }
   100% {
-    opacity: 0.85;
+    opacity: 1;
   }
 }
 
