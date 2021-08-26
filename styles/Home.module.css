@@ -58,6 +58,7 @@
 
 .racetimer {
   z-index: 1;
+  cursor: pointer;
   align-self: flex-start;
   background: var(--black10-color);
   font-size: 7rem;
@@ -186,26 +187,24 @@
 
 .raceMessage {
   text-align: center;
-  padding: 2rem;
+  cursor: pointer;
+  padding: 2rem 0 2.5rem;
   color: var(--pokeyellow-color);
   line-height: 1.15;
   font-size: 3.5rem;
-  animation: flyin cubic-bezier(0.19, 1, 0.22, 1) 0.25s;
+  animation: flyin cubic-bezier(0.1, 1, 0.22, 1.33) 0.2s;
   z-index: 1;
   /* fix artifacts */
   backface-visibility: hidden;
   background: var(--black10-color);
   width: 100vw;
-  /* opacity: 0.85; */
+  opacity: 0.8;
 }
 
 @keyframes flyin {
   0% {
-    font-size: 0;
+    font-size: 0.5rem;
     opacity: 0;
-  }
-  100% {
-    opacity: 1;
   }
 }
 

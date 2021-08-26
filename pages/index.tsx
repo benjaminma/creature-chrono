@@ -47,10 +47,10 @@ const Home: NextPage = () => {
 
         if (raceTime > currTime) {
           if (diffTime <= 1000) {
-            setRaceMessage("1...");
+            setRaceMessage("3... 2... 1...");
             setRaceLight(3);
           } else if (diffTime <= 2000) {
-            setRaceMessage("2...");
+            setRaceMessage("3... 2...");
             setRaceLight(2);
           } else if (diffTime <= 3000) {
             setRaceMessage("3...");
@@ -125,7 +125,7 @@ const Home: NextPage = () => {
       </nav>
 
       <main className={styles.main}>
-        <div className={styles.racetimer}>
+        <div className={styles.racetimer} onClick={handleStart}>
           <span className={styles.racetimer_unlit}>{displayUnlit}</span>
           <span className={styles.racetimer_lit}>{displayLit}</span>
           <span className={styles.racetimer_unlit_sss}>{displayUnlitMs}</span>
@@ -133,7 +133,11 @@ const Home: NextPage = () => {
         </div>
 
         <div className={styles.raceScreen}>
-          <div key={raceMessage} className={styles.raceMessage}>
+          <div
+            key={raceMessage}
+            className={styles.raceMessage}
+            onClick={handleStart}
+          >
             {raceMessage}
           </div>
 
