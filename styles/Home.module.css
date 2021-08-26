@@ -1,4 +1,3 @@
-
 .container {
   min-height: 100vh;
   padding: 0 0.5rem;
@@ -58,6 +57,7 @@
 }
 
 .racetimer {
+  align-self: flex-start;
   background: var(--racetimer-color);
   font-size: 7rem;
   padding: 0.5em;
@@ -82,20 +82,16 @@
 
 .racetimer_lit {
   color: var(--neonorange-color);
-  text-shadow:
-  0 0 3px white,
-  0 0 12px var(--neonorange-color),
-  0 0 48px var(--neonorange-color);
+  text-shadow: 0 0 3px white, 0 0 12px var(--neonorange-color),
+    0 0 48px var(--neonorange-color);
   text-align: center;
 }
 
 .racetimer_lit_sss {
   font-size: 0.66em;
   color: var(--neonorange-color);
-  text-shadow:
-  0 0 3px white,
-  0 0 12px var(--neonorange-color),
-  0 0 48px var(--neonorange-color);
+  text-shadow: 0 0 3px white, 0 0 12px var(--neonorange-color),
+    0 0 48px var(--neonorange-color);
   text-align: center;
 }
 
@@ -105,7 +101,7 @@
   display: flex;
   justify-content: center;
   align-items: stretch;
-  padding: .5rem;
+  padding: 0.5rem;
 }
 
 .btnstart {
@@ -127,7 +123,8 @@
   border: 0.5rem dashed yellow;
 }
 
-.btnstart:focus,.btnstart:hover {
+.btnstart:focus,
+.btnstart:hover {
   border: 0.5rem dashed yellow;
 }
 
@@ -140,12 +137,34 @@
   max-width: 800px;
 }
 
-.title {
+.raceScreen {
+  width: 100vw;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.raceMessage {
+  text-align: center;
   color: var(--pokeyellow-color);
   text-shadow: 0.25em 0.25em var(--pokedarkpurple-color);
-  margin: 3rem;
   line-height: 1.15;
-  font-size: 3rem;
+  font-size: 3.5rem;
+  animation: flyin cubic-bezier(0.19, 1, 0.22, 1) 0.25s;
+
+  /* fix artifacts */
+  backface-visibility: hidden;
+}
+
+@keyframes flyin {
+  0% {
+    font-size: 1em;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .grid {
@@ -181,9 +200,8 @@
     font-size: 6rem;
   }
 
-  .title {
-    font-size: 2rem;
-    margin: 2rem;
+  .raceMessage {
+    font-size: 3rem;
   }
 
   .btnstart {
@@ -196,9 +214,8 @@
     font-size: 5rem;
   }
 
-  .title {
-    font-size: 1.5rem;
-    margin: 1.5rem;
+  .raceMessage {
+    font-size: 2.5rem;
   }
 }
 
@@ -207,8 +224,7 @@
     font-size: 4rem;
   }
 
-  .title {
-    font-size: 1.5rem;
-    margin: 1.5rem;
+  .raceMessage {
+    font-size: 2rem;
   }
 }

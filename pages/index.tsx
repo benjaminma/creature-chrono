@@ -20,7 +20,7 @@ function getRaceMessage(timerState: number, raceTime: number): string {
   }
   return "1";
 }
-const countdownMessage = "3... 2... 1...";
+
 const Home: NextPage = () => {
   const [timerState, setTimerState] = React.useState(0);
   const [startTime, setStartTime] = React.useState(new Date().getTime());
@@ -52,14 +52,14 @@ const Home: NextPage = () => {
         let diffTime = raceTime - currTime;
 
         if (raceTime > currTime) {
-          if (diffTime <= 3000) {
-            setRaceMessage(
-              countdownMessage.substr(
-                0,
-                ((3300 - diffTime) / 3000) * countdownMessage.length
-              )
-            );
+          if (diffTime <= 1000) {
+            setRaceMessage("1...");
+          } else if (diffTime <= 2000) {
+            setRaceMessage("2...");
+          } else if (diffTime <= 3000) {
+            setRaceMessage("3...");
           }
+
           setDisplayUnlit("0:00");
           setDisplayUnlitMs(".00");
           setDisplayLit("");
@@ -134,7 +134,11 @@ const Home: NextPage = () => {
           <span className={styles.racetimer_lit_sss}>{displayLitMs}</span>
         </div>
 
-        <h1 className={styles.title}>{raceMessage}</h1>
+        <div className={styles.raceScreen}>
+          <div key={raceMessage} className={styles.raceMessage}>
+            {raceMessage}
+          </div>
+        </div>
       </main>
 
       <footer className={styles.footer}>
