@@ -121,7 +121,7 @@ const Home: NextPage = () => {
           </a>
           <span></span>
           <a href="#">Race</a>
-          {/* <a href="#">Hi-Score</a> */}
+          <a href="#">Hi-Score</a>
           <a href="#">Settings</a>
         </div>
       </nav>
@@ -135,6 +135,15 @@ const Home: NextPage = () => {
         </div>
 
         <div className={styles.raceScreen}>
+          <div className={styles.raceTree}>
+            <div className={styles.raceTreeRedLit}>00 00</div>
+            <div className={styles.raceTreeRed}>00 00</div>
+            <div className={styles.raceTreeYellowLit}>00 00</div>
+            <div className={styles.raceTreeYellow}>00 00</div>
+            <div className={styles.raceTreeGreenLit}>00 00</div>
+            <div className={styles.raceTreeGreen}>00 00</div>
+          </div>
+
           <div key={raceMessage} className={styles.raceMessage}>
             {raceMessage}
           </div>

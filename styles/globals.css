@@ -10,6 +10,12 @@ html {
   --darkorange-color: rgb(114, 46, 0);
   --racetimer-color: rgb(20, 20, 20);
   --black10-color: rgb(10, 10, 10);
+  --darkred-color: rgb(99, 0, 0);
+  --neonred-color: rgb(255, 0, 0);
+  --darkyellow-color: rgb(91, 54, 0);
+  --neonyellow-color: rgb(249, 191, 0);
+  --darkgreen-color: rgb(9, 70, 0);
+  --neongreen-color: rgb(30, 225, 0);
 }
 
 html,

@@ -57,8 +57,9 @@
 }
 
 .racetimer {
+  z-index: 1;
   align-self: flex-start;
-  background: var(--racetimer-color);
+  background: var(--black10-color);
   font-size: 7rem;
   padding: 0.5em;
   width: 100vw;
@@ -66,7 +67,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
-  box-shadow: inset 0 0 1rem var(--black10-color);
+  border-top: 1px solid black;
 }
 
 .racetimer_unlit {
@@ -93,6 +94,42 @@
   text-shadow: 0 0 3px white, 0 0 12px var(--neonorange-color),
     0 0 48px var(--neonorange-color);
   text-align: center;
+}
+
+.raceTree {
+  font-size: 6rem;
+  position: absolute;
+}
+
+.raceTreeRed {
+  text-align: center;
+  color: var(--darkred-color);
+}
+.raceTreeYellow {
+  text-align: center;
+  color: var(--darkyellow-color);
+}
+.raceTreeGreen {
+  text-align: center;
+  color: var(--darkgreen-color);
+}
+.raceTreeRedLit {
+  text-align: center;
+  color: var(--neonred-color);
+  text-shadow: 0 0 3px white, 0 0 12px var(--neonred-color),
+    0 0 48px var(--neonred-color);
+}
+.raceTreeYellowLit {
+  text-align: center;
+  color: var(--neonyellow-color);
+  text-shadow: 0 0 3px white, 0 0 12px var(--neonyellow-color),
+    0 0 48px var(--neonyellow-color);
+}
+.raceTreeGreenLit {
+  text-align: center;
+  color: var(--neongreen-color);
+  text-shadow: 0 0 3px white, 0 0 12px var(--neongreen-color),
+    0 0 48px var(--neongreen-color);
 }
 
 .footer {
@@ -147,14 +184,17 @@
 
 .raceMessage {
   text-align: center;
+  padding: 2rem;
   color: var(--pokeyellow-color);
-  text-shadow: 0.25em 0.25em var(--pokedarkpurple-color);
   line-height: 1.15;
   font-size: 3.5rem;
   animation: flyin cubic-bezier(0.19, 1, 0.22, 1) 0.25s;
-
+  z-index: 1;
   /* fix artifacts */
   backface-visibility: hidden;
+  background: var(--black10-color);
+  width: 100vw;
+  opacity: 0.85;
 }
 
 @keyframes flyin {
@@ -163,7 +203,7 @@
     opacity: 0;
   }
   100% {
-    opacity: 1;
+    opacity: 0.85;
   }
 }
 
@@ -204,6 +244,10 @@
     font-size: 3rem;
   }
 
+  .raceTree {
+    font-size: 5rem;
+  }
+
   .btnstart {
     font-size: 2rem;
   }
@@ -226,5 +270,17 @@
 
   .raceMessage {
     font-size: 2rem;
+  }
+}
+
+@media (min-height: 1000px) and (min-width: 800px) {
+  .raceTree {
+    font-size: 8rem;
+  }
+}
+
+@media (max-height: 800px) {
+  .raceTree {
+    font-size: 3rem;
   }
 }
