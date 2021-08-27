@@ -12,6 +12,7 @@ import {
   IRival,
 } from "../context/creaturesContext";
 
+const APP_TITLE = "creature-crono 0.1.0";
 const RACE_START_DELAY = 4000;
 const RACE_MESSAGE_READY = "Ready to race?";
 const RACE_MESSAGE_AGAIN = "Race again?";
@@ -37,7 +38,7 @@ const Home: NextPage = () => {
   React.useEffect(() => {
     loadCreatures(creaturesJson);
   }, [creaturesJsonState]);
-  const [rivals, setRivals] = React.useState([]);
+  const [rivals, setRivals] = React.useState<IRival[]>([]);
 
   const [timerState, setTimerState] = React.useState(0);
   const [startTime, setStartTime] = React.useState(new Date().getTime());
@@ -159,7 +160,7 @@ const Home: NextPage = () => {
       <nav className={styles.nav}>
         <div className={styles.navbar}>
           <a href="#" className={styles.navlogo}>
-            creature-chrono
+            {APP_TITLE}
           </a>
           {/* <span></span>
           <a href="#">Race</a>
