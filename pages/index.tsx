@@ -5,21 +5,40 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Confetti from "react-confetti";
 import useWindowSize from "react-use/lib/useWindowSize";
-// import Creatures from "../data/sampleData.json";
+import creaturesJson from "../data/sampleData.json";
+import {
+  CreaturesContext,
+  CreaturesContextType,
+  IRival,
+} from "../context/creaturesContext";
 
-const RACE_START_DELAY = 4500;
-
+const RACE_START_DELAY = 4000;
 const RACE_MESSAGE_READY = "Ready to race?";
 const RACE_MESSAGE_AGAIN = "Race again?";
 
-function getRaceLightStyle(
-  raceLight: number,
-  state: number
-): React.CSSProperties | undefined {
-  return { display: raceLight === state ? "block" : "none" };
-}
+const getRaceMessage = (mph = 0, rivals: IRival[]) => {
+  if (mph === 0) return RACE_MESSAGE_AGAIN;
+  const [fasterThan, slowerThan] = rivals;
+  console.log(mph, fasterThan, slowerThan);
+  if (fasterThan) {
+    return `${mph.toFixed(
+      2
+    )} MPH!! YOU BEAT ${fasterThan.name.toUpperCase()}!!!`;
+  }
+  return `${mph.toFixed(1)} MPH! GOOD JOB!`;
+};
 
 const Home: NextPage = () => {
+  // load creatures from sample JSON
+  const [creaturesJsonState] = React.useState(creaturesJson);
+  const { loadCreatures, getRivalsByMph } = React.useContext(
+    CreaturesContext
+  ) as CreaturesContextType;
+  React.useEffect(() => {
+    loadCreatures(creaturesJson);
+  }, [creaturesJsonState]);
+  const [rivals, setRivals] = React.useState([]);
+
   const [timerState, setTimerState] = React.useState(0);
   const [startTime, setStartTime] = React.useState(new Date().getTime());
   const [raceTime, setRaceTime] = React.useState(new Date().getTime());
@@ -35,6 +54,7 @@ const Home: NextPage = () => {
   const handleStart = React.useCallback(
     (event) => {
       if (timerState === 0) {
+        setRivals([]);
         setTimerState(1);
         setStartTime(new Date().getTime());
         setRaceTime(new Date().getTime() + RACE_START_DELAY);
@@ -43,15 +63,23 @@ const Home: NextPage = () => {
         setTimerState(0);
         setRaceLight(0);
 
-        // TODO: calculate race time
-        // console.log(Creatures);
-        setRaceMessage(RACE_MESSAGE_AGAIN);
-        if (new Date().getTime() > raceTime) {
+        // calculate race time
+        const stopTime = new Date().getTime();
+        if (stopTime > raceTime) {
+          const distance = 100;
+          const elapsedMs = stopTime - raceTime;
+          const fps = (distance / elapsedMs) * 1000;
+          const mph = fps / 1.467;
+          const rivals = getRivalsByMph(mph);
+          setRivals(rivals);
+          setRaceMessage(getRaceMessage(mph, rivals));
           setShowConfetti(true);
+        } else {
+          setRaceMessage(RACE_MESSAGE_AGAIN);
         }
       }
     },
-    [timerState, raceTime]
+    [timerState, raceTime, getRivalsByMph]
   );
   React.useEffect(() => {
     let intervalId: NodeJS.Timer;
@@ -62,13 +90,13 @@ const Home: NextPage = () => {
         let diffTime = raceTime - currTime;
 
         if (raceTime > currTime) {
-          if (diffTime <= 1000) {
+          if (diffTime <= 500) {
             setRaceMessage("3... 2... 1...");
             setRaceLight(3);
-          } else if (diffTime <= 2000) {
+          } else if (diffTime <= 1000) {
             setRaceMessage("3... 2...");
             setRaceLight(2);
-          } else if (diffTime <= 3000) {
+          } else if (diffTime <= 1500) {
             setRaceMessage("3...");
             setRaceLight(1);
           } else {
@@ -162,6 +190,12 @@ const Home: NextPage = () => {
             <div key={raceMessage} className={styles.raceMessage}>
               {raceMessage}
             </div>
+            {rivals && rivals.length > 0 && rivals[0] !== null && (
+              <img
+                src={rivals[0].imageUrl}
+                alt={`Picture of ${rivals[0].name}`}
+              />
+            )}
           </div>
 
           <div className={styles.raceTree}>

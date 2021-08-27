@@ -1,0 +1,200 @@
+[
+  {
+    "type": "Pokemon",
+    "name": "Geodude",
+    "imageUrl": "https://64.media.tumblr.com/f44596084f864aac6bbbb8d29dbc78de/tumblr_owqym4LAXP1s87y5ho2_500.gifv",
+    "estMph": "9",
+    "speed": "20",
+    "height": "0.4",
+    "weight": "20.0\r"
+  },
+  {
+    "type": "Pokemon",
+    "name": "Butterfree",
+    "imageUrl": "https://c.tenor.com/A8kgsqhltPIAAAAC/pokemon-pokemon-butterfree.gif",
+    "estMph": "5.5",
+    "speed": "70",
+    "height": "1.1",
+    "weight": "32.0\r"
+  },
+  {
+    "type": "Pokemon",
+    "name": "Mewtwo",
+    "imageUrl": "https://c.tenor.com/azTQvG1vOQcAAAAM/mewth.gif",
+    "estMph": "999",
+    "speed": "130",
+    "height": "2.0",
+    "weight": "122.0\r"
+  },
+  {
+    "type": "Pokemon",
+    "name": "Rattata",
+    "imageUrl": "https://c.tenor.com/JI2kGjoQ3_MAAAAC/pokemon-rattata.gif",
+    "estMph": "8",
+    "speed": "72",
+    "height": "0.3",
+    "weight": "3.5\r"
+  },
+  {
+    "type": "Pokemon",
+    "name": "Shuckle",
+    "imageUrl": "https://c.tenor.com/RPa5qGmDlokAAAAC/shuckle-pokemon.gif",
+    "estMph": "4",
+    "speed": "5",
+    "height": "0.6",
+    "weight": "20.5\r"
+  },
+  {
+    "type": "Pokemon",
+    "name": "Piplup",
+    "imageUrl": "https://giffiles.alphacoders.com/211/211233.gif",
+    "estMph": "5.6",
+    "speed": "40",
+    "height": "0.4",
+    "weight": "5.2\r"
+  },
+  {
+    "type": "Pokemon",
+    "name": "Caterpie",
+    "imageUrl": "https://gifimage.net/wp-content/uploads/2017/10/caterpie-gif.gif",
+    "estMph": "1",
+    "speed": "45",
+    "height": "0.3",
+    "weight": "2.9\r"
+  },
+  {
+    "type": "Pokemon",
+    "name": "Joltik",
+    "imageUrl": "https://i.gifer.com/JSAH.gif",
+    "estMph": "5",
+    "speed": "65",
+    "height": "0.1",
+    "weight": "0.6\r"
+  },
+  {
+    "type": "Creature",
+    "name": "Sonic",
+    "imageUrl": "https://i.giphy.com/media/PJiqz1RHkdtGE/200w.gif",
+    "estMph": "767",
+    "speed": "180",
+    "height": "1.0",
+    "weight": "24.9\r"
+  },
+  {
+    "type": "Pokemon",
+    "name": "Bulbasaur",
+    "imageUrl": "https://i.imgur.com/IGFlpee.gif",
+    "estMph": "6",
+    "speed": "45",
+    "height": "0.7",
+    "weight": "6.9\r"
+  },
+  {
+    "type": "Pokemon",
+    "name": "Igglybuff",
+    "imageUrl": "https://i.pinimg.com/originals/34/9b/7b/349b7bac832741e2ddbf7f6aea9478f8.gif",
+    "estMph": "4",
+    "speed": "20",
+    "height": "0.3",
+    "weight": "1.0\r"
+  },
+  {
+    "type": "Creature",
+    "name": "Minion",
+    "imageUrl": "https://i.pinimg.com/originals/a7/05/fc/a705fc453f08c7392e3774b0fa58e968.jpg",
+    "estMph": "6",
+    "speed": "60",
+    "height": "0.7",
+    "weight": "0.0\r"
+  },
+  {
+    "type": "Pokemon",
+    "name": "Munchlax",
+    "imageUrl": "https://i.pinimg.com/originals/af/e7/e8/afe7e8e37f13d88d667aa75959ea8686.gif",
+    "estMph": "4",
+    "speed": "5",
+    "height": "0.6",
+    "weight": "105.0\r"
+  },
+  {
+    "type": "Pokemon",
+    "name": "Mudkip",
+    "imageUrl": "https://i.pinimg.com/originals/d2/10/4a/d2104a96b186d0342ea6b43835cdf265.gif",
+    "estMph": "5",
+    "speed": "40",
+    "height": "0.4",
+    "weight": "7.6\r"
+  },
+  {
+    "type": "Pokemon",
+    "name": "Wooper",
+    "imageUrl": "https://media1.giphy.com/media/10xtayLurXe7Ju/giphy.gif",
+    "estMph": "6",
+    "speed": "15",
+    "height": "0.4",
+    "weight": "8.6\r"
+  },
+  {
+    "type": "Pokemon",
+    "name": "Snorlax",
+    "imageUrl": "https://media2.giphy.com/media/CXaDzPow0SJqM/giphy.gif",
+    "estMph": "10",
+    "speed": "30",
+    "height": "2.1",
+    "weight": "460.0\r"
+  },
+  {
+    "type": "Pokemon",
+    "name": "Eevee",
+    "imageUrl": "https://media4.giphy.com/media/TqK5V0YnrWaR2/200.gif",
+    "estMph": "30",
+    "speed": "55",
+    "height": "0.3",
+    "weight": "6.5\r"
+  },
+  {
+    "type": "Pokemon",
+    "name": "Beedrill",
+    "imageUrl": "https://pa1.narvii.com/5754/439a7863c64df1163feebe905622db43890867d0_hq.gif",
+    "estMph": "19.9",
+    "speed": "75",
+    "height": "1.0",
+    "weight": "29.5\r"
+  },
+  {
+    "type": "Pokemon",
+    "name": "Growlithe",
+    "imageUrl": "https://pa1.narvii.com/5910/e04563fa2032607ba784e0522f7f8a6a1d097b5c_hq.gif",
+    "estMph": "7.5",
+    "speed": "60",
+    "height": "0.7",
+    "weight": "19.0\r"
+  },
+  {
+    "type": "Pokemon",
+    "name": "Rockruff",
+    "imageUrl": "https://pa1.narvii.com/6733/8c01335951a65db6da5df9bacf485d654cbabf71_hq.gif",
+    "estMph": "7.5",
+    "speed": "60",
+    "height": "0.5",
+    "weight": "9.2\r"
+  },
+  {
+    "type": "Pokemon",
+    "name": "Pichu",
+    "imageUrl": "https://thumbs.gfycat.com/BriskFreshAmericanalligator-size_restricted.gif",
+    "estMph": "5",
+    "speed": "60",
+    "height": "0.3",
+    "weight": "2.0\r"
+  },
+  {
+    "type": "Pokemon",
+    "name": "Greninja",
+    "imageUrl": "https://66.media.tumblr.com/42a17ff206b6f0be9060ffe5987b3c7a/tumblr_o72fhu8xsU1sr6y44o1_500.gif",
+    "estMph": "60",
+    "speed": "122",
+    "height": "1.5",
+    "weight": "40.0"
+  }
+]
