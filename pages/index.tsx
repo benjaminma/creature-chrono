@@ -1,10 +1,16 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import React from "react";
-// import Image from "next/image";
+import Image from "next/image";
 import styles from "../styles/Home.module.css";
+import Confetti from "react-confetti";
+import useWindowSize from "react-use/lib/useWindowSize";
+// import Creatures from "../data/sampleData.json";
 
 const RACE_START_DELAY = 4500;
+
+const RACE_MESSAGE_READY = "Ready to race?";
+const RACE_MESSAGE_AGAIN = "Race again?";
 
 function getRaceLightStyle(
   raceLight: number,
@@ -18,24 +24,34 @@ const Home: NextPage = () => {
   const [startTime, setStartTime] = React.useState(new Date().getTime());
   const [raceTime, setRaceTime] = React.useState(new Date().getTime());
   const [raceLight, setRaceLight] = React.useState(0);
-  const [raceMessage, setRaceMessage] = React.useState("Ready to race?");
+  const [raceMessage, setRaceMessage] = React.useState(RACE_MESSAGE_READY);
   const [displayUnlit, setDisplayUnlit] = React.useState("0:00");
   const [displayUnlitMs, setDisplayUnlitMs] = React.useState(".00");
   const [displayLit, setDisplayLit] = React.useState("");
   const [displayLitMs, setDisplayLitMs] = React.useState("");
+  const [showConfetti, setShowConfetti] = React.useState(false);
+  const { width, height } = useWindowSize();
+
   const handleStart = React.useCallback(
     (event) => {
       if (timerState === 0) {
         setTimerState(1);
         setStartTime(new Date().getTime());
         setRaceTime(new Date().getTime() + RACE_START_DELAY);
+        setShowConfetti(false);
       } else {
         setTimerState(0);
         setRaceLight(0);
-        setRaceMessage("Race again?");
+
+        // TODO: calculate race time
+        // console.log(Creatures);
+        setRaceMessage(RACE_MESSAGE_AGAIN);
+        if (new Date().getTime() > raceTime) {
+          setShowConfetti(true);
+        }
       }
     },
-    [timerState]
+    [timerState, raceTime]
   );
   React.useEffect(() => {
     let intervalId: NodeJS.Timer;
@@ -117,14 +133,23 @@ const Home: NextPage = () => {
           <a href="#" className={styles.navlogo}>
             creature-chrono
           </a>
-          <span></span>
+          {/* <span></span>
           <a href="#">Race</a>
           <a href="#">Hi-Score</a>
-          <a href="#">Settings</a>
+          <a href="#">Settings</a> */}
         </div>
       </nav>
 
       <main className={styles.main}>
+        {showConfetti && (
+          <Confetti
+            width={width}
+            height={height}
+            numberOfPieces={40}
+            gravity={0.11}
+            colors={["cyan", "magenta", "yellow"]}
+          />
+        )}
         <div className={styles.racetimer} onClick={handleStart}>
           <span className={styles.racetimer_unlit}>{displayUnlit}</span>
           <span className={styles.racetimer_lit}>{displayLit}</span>
@@ -133,12 +158,10 @@ const Home: NextPage = () => {
         </div>
 
         <div className={styles.raceScreen}>
-          <div
-            key={raceMessage}
-            className={styles.raceMessage}
-            onClick={handleStart}
-          >
-            {raceMessage}
+          <div className={styles.raceBanner} onClick={handleStart}>
+            <div key={raceMessage} className={styles.raceMessage}>
+              {raceMessage}
+            </div>
           </div>
 
           <div className={styles.raceTree}>

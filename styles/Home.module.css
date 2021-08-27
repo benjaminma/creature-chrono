@@ -28,7 +28,7 @@
 }
 
 .navlogo {
-  font-size: 1.25rem;
+  font-size: 1rem;
 }
 
 .navbar span {
@@ -52,7 +52,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
 }
 
@@ -62,13 +62,13 @@
   align-self: flex-start;
   background: var(--black10-color);
   font-size: 7rem;
-  padding: 0.5em;
+  padding: 0.25em;
   width: 100vw;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
-  border-top: 1px solid black;
+  border-top: 2px solid black;
 }
 
 .racetimer_unlit {
@@ -98,8 +98,9 @@
 }
 
 .raceTree {
-  font-size: 6rem;
+  font-size: 5rem;
   padding-bottom: 1rem;
+  align-self: center;
 }
 
 .raceTreeRed {
@@ -135,7 +136,7 @@
 
 .footer {
   width: 100vw;
-  height: 10rem;
+  height: 20vh;
   display: flex;
   justify-content: center;
   align-items: stretch;
@@ -151,6 +152,12 @@
   text-shadow: 0.125em 0.125em var(--pokedarkpurple-color);
   font-family: var(--game-font);
   background: var(--pokeblue-color);
+  background: linear-gradient(
+    180deg,
+    var(--pokeblue-color) 50%,
+    var(--pokepurple-color) 51%,
+    var(--pokeblue-color) 100%
+  );
   transform: translateX(-0.25rem) translateY(-0.25rem);
   max-width: 800px;
 }
@@ -182,13 +189,24 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.raceBanner {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  background: rgba(0, 0, 0, 0.75);
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .raceMessage {
   text-align: center;
-  cursor: pointer;
-  padding: 2rem 0 2.5rem;
+  padding: 0 0 0.5em;
   color: var(--pokeyellow-color);
   line-height: 1.15;
   font-size: 3.5rem;
@@ -196,14 +214,13 @@
   z-index: 1;
   /* fix artifacts */
   backface-visibility: hidden;
-  background: var(--black10-color);
-  width: 100vw;
-  opacity: 0.8;
+  width: 90vw;
+  max-width: 1200px;
 }
 
 @keyframes flyin {
   0% {
-    font-size: 0.5rem;
+    transform: scale(0.1);
     opacity: 0;
   }
 }
@@ -274,14 +291,56 @@
   }
 }
 
+@media (max-width: 600px) {
+  .racetimer {
+    font-size: 3rem;
+  }
+
+  .raceMessage {
+    font-size: 1.5rem;
+  }
+
+  .raceTree {
+    font-size: 3rem;
+  }
+
+  .btnstart {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .raceTree {
+    font-size: 2rem;
+  }
+}
+
 @media (min-height: 1000px) and (min-width: 800px) {
   .raceTree {
     font-size: 8rem;
   }
 }
 
-@media (max-height: 800px) {
+@media (max-height: 850px) and (max-device-height: 850px) {
   .raceTree {
     font-size: 3rem;
+  }
+}
+
+@media (max-device-height: 500px) {
+  .racetimer {
+    font-size: 2.5rem;
+  }
+
+  .raceMessage {
+    font-size: 1.25rem;
+  }
+
+  .raceTree {
+    font-size: 2rem;
+  }
+
+  .btnstart {
+    font-size: 1.25rem;
   }
 }
