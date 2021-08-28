@@ -93,6 +93,7 @@ const Home: NextPage = () => {
     let intervalId: NodeJS.Timer;
 
     if (timerState === 1) {
+      let isFirstInterval = true;
       intervalId = setInterval(() => {
         const currTime = new Date().getTime();
         let diffTime = raceTime - currTime;
@@ -118,8 +119,11 @@ const Home: NextPage = () => {
           return;
         }
 
-        setRaceMessage("GO!!!");
-        setRaceLight(4);
+        if (isFirstInterval) {
+          isFirstInterval = false;
+          setRaceMessage("GO!!!");
+          setRaceLight(4);
+        }
 
         diffTime = currTime - raceTime;
         const diffDate = new Date(diffTime);
