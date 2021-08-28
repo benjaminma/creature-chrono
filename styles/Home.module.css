@@ -361,4 +361,8 @@
     height: -webkit-fill-available;
     min-height: -webkit-fill-available;
   }
+
+  .nav {
+    font-size: 0.75rem;
+  }
 }
