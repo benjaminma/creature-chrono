@@ -136,7 +136,7 @@
 
 .footer {
   width: 100vw;
-  height: 20vh;
+  height: 15vh;
   display: flex;
   justify-content: center;
   align-items: stretch;
@@ -360,6 +360,5 @@
     /* fix mobile viewport */
     height: -webkit-fill-available;
     min-height: -webkit-fill-available;
-    border: 4rem dashed tomato;
   }
 }

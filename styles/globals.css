@@ -46,3 +46,13 @@ a:active {
 * {
   box-sizing: border-box;
 }
+
+/* CSS for iOS only */
+@supports (-webkit-touch-callout: none) {
+  html,
+  body {
+    /* fix mobile viewport */
+    height: -webkit-fill-available;
+    min-height: -webkit-fill-available;
+  }
+}
