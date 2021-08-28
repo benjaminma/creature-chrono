@@ -4,12 +4,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  /* fix mobile viewport */
   height: 100vh;
   min-height: 100vh;
-  height: -webkit-fill-available;
-  min-height: -webkit-fill-available;
 }
 
 .nav {
@@ -355,5 +351,15 @@
 
   .btnstart {
     font-size: 1.25rem;
+  }
+}
+
+/* CSS for iOS only */
+@supports (-webkit-touch-callout: none) {
+  .container {
+    /* fix mobile viewport */
+    height: -webkit-fill-available;
+    min-height: -webkit-fill-available;
+    border: 4rem dashed tomato;
   }
 }
