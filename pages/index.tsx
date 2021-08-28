@@ -5,15 +5,17 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Confetti from "react-confetti";
 import useWindowSize from "react-use/lib/useWindowSize";
+import useOrientation from "react-use/lib/useOrientation";
 import creaturesJson from "../data/sampleData.json";
 import {
   CreaturesContext,
   CreaturesContextType,
   IRival,
 } from "../context/creaturesContext";
+import Package from "../package.json";
 
-const APP_TITLE = "creature-crono 0.1.0";
-const RACE_START_DELAY = 4000;
+const APP_TITLE = `creature-crono v${Package.version}`;
+const RACE_START_DELAY = 5000;
 const RACE_MESSAGE_READY = "Ready to race?";
 const RACE_MESSAGE_AGAIN = "Race again?";
 
@@ -50,7 +52,12 @@ const Home: NextPage = () => {
   const [displayLit, setDisplayLit] = React.useState("");
   const [displayLitMs, setDisplayLitMs] = React.useState("");
   const [showConfetti, setShowConfetti] = React.useState(false);
+
+  const orientation = useOrientation();
   const { width, height } = useWindowSize();
+  React.useEffect(() => {
+    setShowConfetti(false);
+  }, [orientation, setShowConfetti]);
 
   const handleStart = React.useCallback(
     (event) => {
@@ -101,7 +108,7 @@ const Home: NextPage = () => {
             setRaceMessage("3...");
             setRaceLight(1);
           } else {
-            setRaceMessage("Ready...");
+            setRaceMessage("Standby.");
           }
 
           setDisplayUnlit("0:00");

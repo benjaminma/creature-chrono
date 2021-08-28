@@ -1,11 +1,15 @@
 .container {
-  min-height: 100vh;
   padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  /* fix mobile viewport */
   height: 100vh;
+  min-height: 100vh;
+  height: -webkit-fill-available;
+  min-height: -webkit-fill-available;
 }
 
 .nav {
@@ -194,6 +198,7 @@
 }
 
 .raceBanner {
+  z-index: 1;
   cursor: pointer;
   position: absolute;
   top: 0;
