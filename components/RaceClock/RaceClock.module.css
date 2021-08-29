@@ -1,0 +1,40 @@
+.racetimer {
+  z-index: 1;
+  cursor: pointer;
+  align-self: flex-start;
+  background: var(--black10-color);
+  font-size: 7rem;
+  padding: 0.25em;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  border-top: 2px solid black;
+}
+
+.racetimer_unlit {
+  color: var(--darkorange-color);
+  text-align: center;
+}
+
+.racetimer_unlit_sss {
+  font-size: 0.66em;
+  color: var(--darkorange-color);
+  text-align: center;
+}
+
+.racetimer_lit {
+  color: var(--neonorange-color);
+  text-shadow: 0 0 3px white, 0 0 12px var(--neonorange-color),
+    0 0 48px var(--neonorange-color);
+  text-align: center;
+}
+
+.racetimer_lit_sss {
+  font-size: 0.66em;
+  color: var(--neonorange-color);
+  text-shadow: 0 0 3px white, 0 0 12px var(--neonorange-color),
+    0 0 48px var(--neonorange-color);
+  text-align: center;
+}

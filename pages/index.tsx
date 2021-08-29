@@ -13,7 +13,7 @@ import {
   IRival,
 } from "../context/creaturesContext";
 import Package from "../package.json";
-import { RaceTree } from "../components";
+import { RaceClock, RaceTree } from "../components";
 
 const APP_TITLE = `creature-crono v${Package.version}`;
 const RACE_START_DELAY = 5000;
@@ -45,13 +45,13 @@ const Home: NextPage = () => {
 
   const [timerState, setTimerState] = React.useState(0);
   const [startTime, setStartTime] = React.useState(new Date().getTime());
+  const [raceReady, setRaceReady] = React.useState(false);
   const [raceTime, setRaceTime] = React.useState(new Date().getTime());
   const [raceLight, setRaceLight] = React.useState(0);
   const [raceMessage, setRaceMessage] = React.useState(RACE_MESSAGE_READY);
-  const [displayUnlit, setDisplayUnlit] = React.useState("0:00");
-  const [displayUnlitMs, setDisplayUnlitMs] = React.useState(".00");
-  const [displayLit, setDisplayLit] = React.useState("");
-  const [displayLitMs, setDisplayLitMs] = React.useState("");
+  const [raceClockMinutes, setRaceClockMinutes] = React.useState(0);
+  const [raceClockSeconds, setRaceClockSeconds] = React.useState(0);
+  const [raceClockMs, setRaceClockMs] = React.useState(0);
   const [showConfetti, setShowConfetti] = React.useState(false);
 
   const orientation = useOrientation();
@@ -63,6 +63,7 @@ const Home: NextPage = () => {
   const handleStart = React.useCallback(
     (event) => {
       if (timerState === 0) {
+        setRaceReady(true);
         setRivals([]);
         setTimerState(1);
         setStartTime(new Date().getTime());
@@ -84,6 +85,7 @@ const Home: NextPage = () => {
           setRaceMessage(getRaceMessage(mph, rivals));
           setShowConfetti(true);
         } else {
+          setRaceReady(false);
           setRaceMessage(RACE_MESSAGE_AGAIN);
         }
       }
@@ -113,10 +115,9 @@ const Home: NextPage = () => {
             setRaceMessage("Standby.");
           }
 
-          setDisplayUnlit("0:00");
-          setDisplayUnlitMs(".00");
-          setDisplayLit("");
-          setDisplayLitMs("");
+          setRaceClockMinutes(0);
+          setRaceClockSeconds(0);
+          setRaceClockMs(0);
           return;
         }
 
@@ -128,29 +129,9 @@ const Home: NextPage = () => {
 
         diffTime = currTime - raceTime;
         const diffDate = new Date(diffTime);
-        const m = diffDate.getMinutes().valueOf();
-        const ss = diffDate.getSeconds().valueOf();
-        const sss = diffDate
-          .getMilliseconds()
-          .toString()
-          .padStart(3, "0")
-          .substr(0, 2);
-        let unlit = "";
-        if (m === 0 && ss < 10) {
-          unlit = "0:0";
-        } else if (m === 0) {
-          unlit = "0:";
-        }
-        setDisplayUnlit(unlit);
-        setDisplayUnlitMs("");
-        let lit;
-        if (m > 0) {
-          lit = `${m}:${ss.toString().padStart(2, "0")}`;
-        } else {
-          lit = `${ss}`;
-        }
-        setDisplayLit(lit);
-        setDisplayLitMs(`.${sss}`);
+        setRaceClockMinutes(diffDate.getMinutes());
+        setRaceClockSeconds(diffDate.getSeconds());
+        setRaceClockMs(diffDate.getMilliseconds());
       }, 33);
     }
 
@@ -191,12 +172,13 @@ const Home: NextPage = () => {
             colors={["cyan", "magenta", "yellow"]}
           />
         )}
-        <div className={styles.racetimer} onClick={handleStart}>
-          <span className={styles.racetimer_unlit}>{displayUnlit}</span>
-          <span className={styles.racetimer_lit}>{displayLit}</span>
-          <span className={styles.racetimer_unlit_sss}>{displayUnlitMs}</span>
-          <span className={styles.racetimer_lit_sss}>{displayLitMs}</span>
-        </div>
+        <RaceClock
+          isRaceReady={raceReady}
+          minutes={raceClockMinutes}
+          seconds={raceClockSeconds}
+          ms={raceClockMs}
+          onClick={handleStart}
+        />
 
         <div className={styles.raceScreen}>
           <div className={styles.raceBanner} onClick={handleStart}>
@@ -211,7 +193,7 @@ const Home: NextPage = () => {
             )}
           </div>
 
-          <RaceTree raceLight={raceLight}></RaceTree>
+          <RaceTree raceLight={raceLight} />
         </div>
       </main>
 
