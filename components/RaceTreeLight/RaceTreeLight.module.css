@@ -1,0 +1,30 @@
+.raceTreeRed {
+  text-align: center;
+  color: var(--darkred-color);
+}
+.raceTreeYellow {
+  text-align: center;
+  color: var(--darkyellow-color);
+}
+.raceTreeGreen {
+  text-align: center;
+  color: var(--darkgreen-color);
+}
+.raceTreeRedLit {
+  text-align: center;
+  color: var(--neonred-color);
+  text-shadow: 0 0 3px white, 0 0 12px var(--neonred-color),
+    0 0 48px var(--neonred-color);
+}
+.raceTreeYellowLit {
+  text-align: center;
+  color: var(--neonyellow-color);
+  text-shadow: 0 0 3px white, 0 0 12px var(--neonyellow-color),
+    0 0 48px var(--neonyellow-color);
+}
+.raceTreeGreenLit {
+  text-align: center;
+  color: var(--neongreen-color);
+  text-shadow: 0 0 3px white, 0 0 12px var(--neongreen-color),
+    0 0 48px var(--neongreen-color);
+}

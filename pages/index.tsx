@@ -13,6 +13,7 @@ import {
   IRival,
 } from "../context/creaturesContext";
 import Package from "../package.json";
+import { RaceTree } from "../components";
 
 const APP_TITLE = `creature-crono v${Package.version}`;
 const RACE_START_DELAY = 5000;
@@ -210,49 +211,7 @@ const Home: NextPage = () => {
             )}
           </div>
 
-          <div className={styles.raceTree}>
-            <div
-              className={
-                raceLight === 0 ? styles.raceTreeRedLit : styles.raceTreeRed
-              }
-            >
-              00 00
-            </div>
-            <div
-              className={
-                raceLight === 1
-                  ? styles.raceTreeYellowLit
-                  : styles.raceTreeYellow
-              }
-            >
-              00 00
-            </div>
-            <div
-              className={
-                raceLight === 2
-                  ? styles.raceTreeYellowLit
-                  : styles.raceTreeYellow
-              }
-            >
-              00 00
-            </div>
-            <div
-              className={
-                raceLight === 3
-                  ? styles.raceTreeYellowLit
-                  : styles.raceTreeYellow
-              }
-            >
-              00 00
-            </div>
-            <div
-              className={
-                raceLight === 4 ? styles.raceTreeGreenLit : styles.raceTreeGreen
-              }
-            >
-              00 00
-            </div>
-          </div>
+          <RaceTree raceLight={raceLight}></RaceTree>
         </div>
       </main>
 
